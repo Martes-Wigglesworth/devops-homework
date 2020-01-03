@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wcf-auth-api-service
+  name: wcf-web-app-service
 spec:
   selector:
-    app: wcf-auth-api
+    app: wcf-web-app
   ports:
   - protocol: "TCP"
     port: 5001
@@ -15,20 +15,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wcf-auth-api
+  name: wcf-web-app
 spec:
   selector:
     matchLabels:
-      app: wcf-auth-api
+      app: wcf-web-app
   replicas: 2
   template:
     metadata:
       labels:
-        app: wcf-auth-api
+        app: wcf-web-app
     spec:
       containers:
-      - name: wcf-auth-api-centos7
-        image: wcf-auth-api-centos7:latest
+      - name: wcf-web-app-centos7
+        image: wcf-web-app-centos7:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
