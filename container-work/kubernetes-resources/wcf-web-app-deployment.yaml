@@ -7,9 +7,8 @@ spec:
     app: wcf-web-app
   ports:
   - protocol: "TCP"
-    port: 5001
-    targetPort: 5000
-  type: LoadBalancer
+    port: 8080
+    targetPort: 8080
 
 ---
 apiVersion: apps/v1
@@ -20,7 +19,7 @@ spec:
   selector:
     matchLabels:
       app: wcf-web-app
-  replicas: 2
+  replicas: 10
   template:
     metadata:
       labels:
