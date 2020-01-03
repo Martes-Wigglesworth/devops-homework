@@ -1,5 +1,6 @@
 FROM centos/systemd
 
+ARG user_name=wcfadmin
 RUN cat < /etc/systemd/system/wcf-auth-api.service
 [Unit]
 Description=West Creek Financial Auth Service
