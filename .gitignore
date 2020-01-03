@@ -1,0 +1,6 @@
+**/.pydevproject
+**/*.pyc
+**/*.db
+**/.project
+**/target
+**/bin

@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: wcf-web-app-ingress
+  annotations: nginx.ingress.kubernetes.io/rewrite-target: /
+               kubernetes.io/ingress.allow-http: "false"
+spec:
+  tls:
+  - hosts:
+    - wcf-web-app
+    secretName: wcfsecret-tls
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: wcf-web-app-service
+          servicePort: 80
